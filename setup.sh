@@ -46,6 +46,9 @@ sudo apt install -y nodejs npm
 # Install other stuff
 pipsi install thefuck
 pipsi install howdoi
+pipsi install black
+pipsi install mypy
+pipsi install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
 
