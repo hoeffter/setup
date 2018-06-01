@@ -51,6 +51,7 @@ pipsi install mypy
 pipsi install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
+sudo apt-get install -y git-extras
 
 # sexy git diffs
 npm install -g diff-so-fancy
