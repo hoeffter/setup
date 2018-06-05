@@ -52,6 +52,7 @@ pipsi install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
 sudo apt-get install -y git-extras
+sudo apt-get install -y termsaver
 
 # sexy git diffs
 npm install -g diff-so-fancy
