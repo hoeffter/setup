@@ -37,9 +37,6 @@ xz-utils tk-dev
 sudo apt-get install -y python3-venv python3-dev python3-pip
 curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python3 - --src=git+https://github.com/mitsuhiko/pipsi.git\#egg=pipsi
 
-pipsi install pew
-pipsi install pipenv
-
 # Install Nodejs
 sudo apt install -y nodejs npm
 mkdir ~/.npm-global
@@ -47,8 +44,9 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 source ~/.profile
 
-
 # Install other stuff
+pipsi install pew
+pipsi install pipenv
 pipsi install thefuck
 pipsi install howdoi
 pipsi install black
