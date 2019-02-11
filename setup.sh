@@ -6,21 +6,21 @@ sudo apt update && sudo apt upgrade -y
 sudo apt-get install -y mosh
 
 #Install Oh My ZSH
-sudo apt-get install -y zsh
-chsh -s "$(command -v zsh)"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sudo apt-get install -y zsh
+#chsh -s "$(command -v zsh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 #Install Neovim
-sudo apt-get install software-properties-common -y
-sudo apt-get install python-software-properties -y
-sudo apt-get install -y neovim
-sudo apt-get install -y python3-neovim
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-sudo update-alternatives --config vi
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-sudo update-alternatives --config editor
+# sudo apt-get install software-properties-common -y
+# sudo apt-get install python-software-properties -y
+# sudo apt-get install -y neovim
+# sudo apt-get install -y python3-neovim
+# sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+# sudo update-alternatives --config vi
+# sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+# sudo update-alternatives --config vim
+# sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+# sudo update-alternatives --config editor
 
 # Install Golang
 sudo apt-get install -y golang
@@ -42,6 +42,11 @@ pipsi install pipenv
 
 # Install Nodejs
 sudo apt install -y nodejs npm
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+source ~/.profile
+
 
 # Install other stuff
 pipsi install thefuck
@@ -52,26 +57,40 @@ pipsi install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
 sudo apt-get install -y git-extras
-sudo apt-get install -y termsaver
+# sudo apt-get install -y termsaver
 
 # sexy git diffs
 npm install -g diff-so-fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global color.ui true
+
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+
+git config --global color.diff.meta       "yellow"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"
+git config --bool --global diff-so-fancy.markEmptyLines false
 
 # trash as the safe `rm` alternative
 npm install --global trash-cli
 
 # Install ripgrep
-curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep_0.8.1_amd64.deb
-sudo dpkg -i ripgrep_0.8.1_amd64.deb
+sudo apt-get install ripgrep
 
 # Install ZSH Theme
-git clone https://github.com/denysdovhan/spaceship-prompt.git"$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+# git clone https://github.com/denysdovhan/spaceship-prompt.git"$ZSH_CUSTOM/themes/spaceship-prompt"
+# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # Add settings to zshrc
-{
-echo "export GOPATH=$HOME/go"
-echo "export PATH=${PATH}:${GOPATH}/bin"
-echo "export PATH=/root/.local/bin:$PATH" 
-} >> ~/.zshrc
-source .zshrc
+# {
+# echo "export GOPATH=$HOME/go"
+# echo "export PATH=${PATH}:${GOPATH}/bin"
+# echo "export PATH=/root/.local/bin:$PATH" 
+# } >> ~/.zshrc
+# source .zshrc
