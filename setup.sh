@@ -1,6 +1,7 @@
 #!/bin/bash
 #Add repository for newest Emacs
 sudo add-apt-repository ppa:kelleyk/emacs
+sudo add-apt-repository ppa:longsleep/golang-backports
 
 #Update the system
 sudo apt update && sudo apt upgrade -y
@@ -15,7 +16,7 @@ sudo apt install Emacs26
 git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 #Install Golang
-sudo apt-get install -y golang
+sudo apt-get install -y golang-go
 
 # Install shellcheck to write better shell-scripts
 sudo apt-get install -y shellcheck
