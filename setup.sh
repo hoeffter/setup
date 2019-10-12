@@ -1,28 +1,20 @@
 #!/bin/bash
+#Add repository for newest Emacs
+sudo add-apt-repository ppa:kelleyk/emacs
+
 #Update the system
 sudo apt update && sudo apt upgrade -y
 
 #Install Mosh
 sudo apt-get install -y mosh
 
-#Install Oh My ZSH
-#sudo apt-get install -y zsh
-#chsh -s "$(command -v zsh)"
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#Install Emacs
+sudo apt install Emacs26
 
-#Install Neovim
-# sudo apt-get install software-properties-common -y
-# sudo apt-get install python-software-properties -y
-# sudo apt-get install -y neovim
-# sudo apt-get install -y python3-neovim
-# sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-# sudo update-alternatives --config vi
-# sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-# sudo update-alternatives --config vim
-# sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-# sudo update-alternatives --config editor
+#Install Spacemacs
+git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-# Install Golang
+#Install Golang
 sudo apt-get install -y golang
 
 # Install shellcheck to write better shell-scripts
@@ -55,7 +47,6 @@ pipsi install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
 sudo apt-get install -y git-extras
-# sudo apt-get install -y termsaver
 
 # sexy git diffs
 npm install -g diff-so-fancy
@@ -81,14 +72,6 @@ npm install --global trash-cli
 # Install ripgrep
 sudo apt-get install ripgrep
 
-# Install ZSH Theme
-# git clone https://github.com/denysdovhan/spaceship-prompt.git"$ZSH_CUSTOM/themes/spaceship-prompt"
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-
-# Add settings to zshrc
-# {
-# echo "export GOPATH=$HOME/go"
-# echo "export PATH=${PATH}:${GOPATH}/bin"
-# echo "export PATH=/root/.local/bin:$PATH" 
-# } >> ~/.zshrc
-# source .zshrc
+#Install the SourceCodePro-Font
+chmod a+x Install_SourceCodePro.sh
+./Install_SourceCodePro.sh
