@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install software-properties-common
 #Add repository for newest Emacs
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo add-apt-repository ppa:longsleep/golang-backports
@@ -28,7 +29,9 @@ libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev
 
 sudo apt-get install -y python3-venv python3-dev python3-pip
-curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python3 - --src=git+https://github.com/mitsuhiko/pipsi.git\#egg=pipsi
+#Install pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
 
 # Install Nodejs
 sudo apt install -y nodejs npm
@@ -38,13 +41,13 @@ export PATH=~/.npm-global/bin:$PATH
 source ~/.profile
 
 # Install other stuff
-pipsi install pew
-pipsi install pipenv
-pipsi install thefuck
-pipsi install howdoi
-pipsi install black
-pipsi install mypy
-pipsi install rebound-cli
+pipx install pew
+pipx install pipenv
+pipx install thefuck
+pipx install howdoi
+pipx install black
+pipx install mypy
+pipx install rebound-cli
 npm install -g tldr
 sudo apt-get install -y ranger
 sudo apt-get install -y git-extras
